@@ -34,7 +34,7 @@ namespace Mango.Services.AuthApi.Controllers
         public async Task<IActionResult> Login([FromBody] LoginDto loginDto)
         {
             var user = await _authService.Login(loginDto);
-            if(user == null)
+            if(user.User == null)
             {
                 _responseDto.IsSuccess = false;
                 _responseDto.Message = "Wrong credentials";

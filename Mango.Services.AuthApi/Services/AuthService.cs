@@ -54,7 +54,8 @@ namespace Mango.Services.AuthApi.Services
             }
 
             var userDto = _mapper.Map<UserDto>(user);
-            var token = _jwtTokenService.GenerateToken(user);
+            var roles = await _userManager.GetRolesAsync(user);
+            var token = _jwtTokenService.GenerateToken(user, roles);
 
             return new LoginResponseDto() { User =  userDto, Token = token };
         }
@@ -70,10 +71,11 @@ namespace Mango.Services.AuthApi.Services
                 {
                     var createdUser = await _appDbContext.Users.FirstOrDefaultAsync(u => u.Email == register.Email);
                     var userDto = _mapper.Map<UserDto>(createdUser);
+                    var roles = await _userManager.GetRolesAsync(createdUser);
                     return new LoginResponseDto()
                     {
                         User = userDto,
-                        Token = _jwtTokenService.GenerateToken(createdUser)
+                        Token = _jwtTokenService.GenerateToken(createdUser, roles)
                     };
                 }
 
