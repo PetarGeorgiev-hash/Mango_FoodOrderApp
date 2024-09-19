@@ -1,6 +1,8 @@
-﻿using Mango.Services.CouponApi.Dto;
+﻿
+using Mango.Services.CouponApi.Dto;
 using Mango.Services.CouponApi.IService;
 using Mango.Services.CouponApi.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using static Azure.Core.HttpHeader;
@@ -9,6 +11,7 @@ namespace Mango.Services.CouponApi.Controllers
 {
     [Route("api/coupon")]
     [ApiController]
+    [Authorize]
     public class CouponController : ControllerBase
     {
         private readonly ICouponService _couponService;
@@ -67,6 +70,7 @@ namespace Mango.Services.CouponApi.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "ADMIN")]
         public async Task<ResponseDto> CreateCoupon([FromBody] CouponDto coupon)
         {
             try
