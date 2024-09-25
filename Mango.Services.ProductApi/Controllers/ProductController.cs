@@ -9,7 +9,6 @@ namespace Mango.Services.ProductApi.Controllers
 {
     [ApiController]
     [Route("api/product")]
-    [Authorize]
     public class ProductController : ControllerBase
     {
         private readonly IProductService _service;
@@ -39,6 +38,21 @@ namespace Mango.Services.ProductApi.Controllers
             return _responseDto;
         }
 
+        [HttpGet("{id}")]
+        public async Task<ResponseDto> GetProductById(int id)
+        {
+            try
+            {
+                var result = await _service.GetProductById(id);
+                _responseDto.Result = result;
+            }
+            catch (Exception ex)
+            {
+                _responseDto.IsSuccess = false;
+                _responseDto.Message = ex.Message;
+            }
+            return _responseDto;
+        }
         [HttpPost]
         [Authorize(Roles = "ADMIN")]
         public async Task<ResponseDto> Create([FromBody] ProductDto product)
@@ -62,7 +76,7 @@ namespace Mango.Services.ProductApi.Controllers
         {
             try
             {
-                var result = await _service.UpdateAsync(product.Id,product);
+                var result = await _service.UpdateAsync(product.Id, product);
                 _responseDto.Result = result;
             }
             catch (Exception ex)

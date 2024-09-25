@@ -7,7 +7,7 @@ using System.Text.Json;
 namespace Mango.Web.Controllers
 {
     public class ProductController : Controller
-    {
+    { 
         private readonly IProductService _productService;
 
         public ProductController(IProductService productService)
@@ -52,7 +52,7 @@ namespace Mango.Web.Controllers
             return View(product);
         }
 
-        public async Task<IActionResult> DeleteProduct(int id)
+        public async Task<IActionResult> ProductDelete(int id)
         {
             var response = await _productService.DeleteProductAsync(id);
             if(response != null && response.IsSuccess)
@@ -68,6 +68,24 @@ namespace Mango.Web.Controllers
             return NotFound(id);
         }
 
-        public async Task<IActionResult> ProductEdit()
+        public async Task<IActionResult> ProductEdit(ProductDto product)
+        {
+                if (ModelState.IsValid)
+                {
+                    var response = await _productService.UpdateProductAsync(product);
+
+                    if (response != null && response.IsSuccess)
+                    {
+                        TempData["success"] = "Product Updated";
+                        return RedirectToAction("ProductIndex");
+                    }
+                    else
+                    {
+                        TempData["error"] = response?.Message;
+                    }
+                }
+                return View(product);
+            
+        }
     }
 }

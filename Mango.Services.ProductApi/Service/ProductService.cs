@@ -38,6 +38,12 @@ namespace Mango.Services.ProductApi.Service
             return true;
         }
 
+        public async Task<ProductDto?> GetProductById(int id)
+        {
+            var product = await _db.Products.FirstOrDefaultAsync(p => p.Id == id);
+            return _mapper.Map<ProductDto>(product);
+        }
+
         public async Task<IEnumerable<ProductDto>> GetProducts()
         {
             var products = await _db.Products.ToListAsync();

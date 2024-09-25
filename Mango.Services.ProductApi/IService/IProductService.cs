@@ -5,8 +5,9 @@ namespace Mango.Services.ProductApi.IService
     public interface IProductService
     {
         Task<IEnumerable<ProductDto>> GetProducts();
+        Task<ProductDto> GetProductById(int id);
         Task<ProductDto> CreateAsync(ProductDto productDto);
-        Task<ProductDto?> UpdateAsync(int id,ProductDto productDto);
+        Task<ProductDto?> UpdateAsync(int id, ProductDto productDto);
         Task<bool> DeleteAsync(int id);
     }
 }
