@@ -13,7 +13,7 @@ namespace Mango.Web.Service
             _baseService = baseService;
         }
 
-        public async Task<ResponseDto?> CreateCouponAsync(CouponDto couponDto)
+        public async Task<ResponseDto?> CreateCouponAsync(ProductDto couponDto)
         {
             return await _baseService.SendAsync(new RequestDto()
             {
@@ -59,7 +59,7 @@ namespace Mango.Web.Service
             });
         }
 
-        public async Task<ResponseDto?> UpdateCouponAsync(CouponDto couponDto)
+        public async Task<ResponseDto?> UpdateCouponAsync(ProductDto couponDto)
         {
             return await _baseService.SendAsync(new RequestDto()
             {

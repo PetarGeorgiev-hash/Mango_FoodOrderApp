@@ -33,7 +33,7 @@ namespace Mango.Web.Controllers
             return View(coupons);
         }
 
-        public async Task<IActionResult> CouponCreate(CouponDto coupon)
+        public async Task<IActionResult> CouponCreate(ProductDto coupon)
         {
             if (ModelState.IsValid)
             {
@@ -42,7 +42,7 @@ namespace Mango.Web.Controllers
                 if (response != null && response.IsSuccess)
                 {
                     TempData["success"] = "Coupon Created";
-                    return RedirectToAction("CouponIndex");
+                    return RedirectToAction(nameof(CouponIndex));
                 }
                 else
                 {
@@ -52,7 +52,7 @@ namespace Mango.Web.Controllers
             return View(coupon);
         }
 
-        public async Task<IActionResult> CouponDelete(int id)
+        public async Task<IActionResult> DeleteCoupon(int id)
         {
             var response = await _couponService.DeleteCouponAsync(id);
             if(response != null && response.IsSuccess)

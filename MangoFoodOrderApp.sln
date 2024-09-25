@@ -15,7 +15,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mango.Services.CouponApi", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mango.Web", "Mango.Web\Mango.Web.csproj", "{2FC555DC-C3BF-44D1-8B1F-5815A3CF66AC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mango.Services.AuthApi", "Mango.Services.AuthApi\Mango.Services.AuthApi.csproj", "{EDDC24C1-191B-4EFB-A310-02ADBDD669B8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mango.Services.AuthApi", "Mango.Services.AuthApi\Mango.Services.AuthApi.csproj", "{EDDC24C1-191B-4EFB-A310-02ADBDD669B8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mango.Services.ProductApi", "Mango.Services.ProductApi\Mango.Services.ProductApi.csproj", "{7608B1EE-7666-4706-9504-0345CFADD98A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,6 +37,10 @@ Global
 		{EDDC24C1-191B-4EFB-A310-02ADBDD669B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EDDC24C1-191B-4EFB-A310-02ADBDD669B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EDDC24C1-191B-4EFB-A310-02ADBDD669B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7608B1EE-7666-4706-9504-0345CFADD98A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7608B1EE-7666-4706-9504-0345CFADD98A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7608B1EE-7666-4706-9504-0345CFADD98A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7608B1EE-7666-4706-9504-0345CFADD98A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -43,6 +49,7 @@ Global
 		{375682D6-B4BB-4D13-91E5-B24C8ABE3B07} = {ADF8AA65-D6BE-44A8-9411-C5A581AD5954}
 		{2FC555DC-C3BF-44D1-8B1F-5815A3CF66AC} = {5342E637-A5A5-46CD-8BA7-0AA302FF924C}
 		{EDDC24C1-191B-4EFB-A310-02ADBDD669B8} = {ADF8AA65-D6BE-44A8-9411-C5A581AD5954}
+		{7608B1EE-7666-4706-9504-0345CFADD98A} = {ADF8AA65-D6BE-44A8-9411-C5A581AD5954}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4440AA87-8219-44F3-B4FD-50B1317DD0C7}
