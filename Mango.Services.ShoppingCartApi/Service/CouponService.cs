@@ -1,6 +1,7 @@
 ﻿using Mango.Services.ShoppingCartApi.Dto;
 using Mango.Services.ShoppingCartApi.IService;
 using Newtonsoft.Json;
+using System.Security.Claims;
 
 namespace Mango.Services.ShoppingCartApi.Service
 {
@@ -14,7 +15,7 @@ namespace Mango.Services.ShoppingCartApi.Service
         }
 
         public async Task<CouponDto> GetCoupon(string couponCode)
-        {
+        { 
             var client = _httpClientFactory.CreateClient("Coupon");
             var response = await client.GetAsync($"/api/coupon/GetByCode/{couponCode}");
             var apiContent = await response.Content.ReadAsStringAsync();
